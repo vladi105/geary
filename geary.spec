@@ -17,6 +17,7 @@ BuildRequires:	gettext
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool
 BuildRequires:	iso-codes
+BuildRequires:	xml2po
 BuildRequires:	pkgconfig(enchant)
 BuildRequires:	pkgconfig(gcr-3)
 BuildRequires:	pkgconfig(gee-0.8)
