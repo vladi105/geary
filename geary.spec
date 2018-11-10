@@ -4,14 +4,16 @@
 %global __provides_exclude_from %{_libdir}/%{name}/.*\\.so
 
 Name:		geary
-Version:	0.12.1
-Release:	2
+Version:	0.12.4
+Release:	1
 Summary:	A lightweight email program designed around conversations
 License:	LGPLv2+
 Group:		Networking/Mail
 URL:		https://wiki.gnome.org/Apps/Geary
 Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 Patch0:		0001-Fix-web-extensions-location.patch
+# Geary wont build with new webkitGTK >=2.21. https://gitlab.gnome.org/GNOME/geary/issues/37 (penguin)
+Patch1:		geary-0.12-use-upstream-jsc.patch
 BuildRequires:	cmake
 BuildRequires:	gettext
 BuildRequires:	gnome-doc-utils
@@ -71,7 +73,7 @@ features in a modular way.
 %{_datadir}/%{name}/
 %{_datadir}/applications/*.desktop
 %{_datadir}/glib-2.0/schemas/org.gnome.Geary.gschema.xml
-%{_datadir}/icons/hicolor/*/apps/%{name}*.*
+%{_datadir}/icons/hicolor/*/apps/org.gnome.Geary*
 %{_datadir}/icons/hicolor/*/actions/*.*
 %{_datadir}/appdata/org.gnome.Geary.appdata.xml
 %{_datadir}/contractor/%{name}*.contract
