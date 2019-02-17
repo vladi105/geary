@@ -19,6 +19,7 @@ BuildRequires:	gettext
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool
 BuildRequires:	iso-codes
+BuildRequires:       meson
 BuildRequires:	xml2po
 BuildRequires:	pkgconfig(enchant)
 BuildRequires:	pkgconfig(gcr-3)
@@ -54,17 +55,11 @@ features in a modular way.
 %apply_patches
 
 %build
-%cmake -DGSETTINGS_COMPILE=OFF \
-       -DGSETTINGS_COMPILE_IN_PLACE=OFF \
-       -DICON_UPDATE=OFF \
-       -DDESKTOP_UPDATE=OFF \
-       -DCMAKE_INSTALL_LIBDIR:PATH=%{_libdir} \
-       -DLIB_INSTALL_DIR:PATH=%{_libdir}
-
-%make
+%meson
+%meson_build
 
 %install
-%makeinstall_std -C build
+%meson_install
 
 %find_lang %{name} --with-gnome
 
