@@ -76,7 +76,7 @@ features in a modular way.
 %{_datadir}/glib-2.0/schemas/org.gnome.Geary.gschema.xml
 %{_datadir}/icons/hicolor/*/apps/org.gnome.Geary*
 %{_datadir}/icons/hicolor/*/actions/*.*
-%{_datadir}/appdata/org.gnome.Geary.appdata.xml
-%{_datadir}/contractor/%{name}*.contract
+#{_datadir}/appdata/org.gnome.Geary.appdata.xml
+#{_datadir}/contractor/%{name}*.contract
 %{_libdir}/%{name}/
 
