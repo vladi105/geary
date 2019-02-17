@@ -22,6 +22,7 @@ BuildRequires:	iso-codes
 BuildRequires:  meson
 BuildRequires:	xml2po
 BuildRequires:	pkgconfig(enchant)
+BuildRequires:  pkgconfig(enchant-2)
 BuildRequires:	pkgconfig(gcr-3)
 BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(gmime-2.6)
@@ -35,6 +36,7 @@ BuildRequires:	pkgconfig(libcanberra)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(libsoup-2.4)
+BuildRequires:  pkgconfig(libunwind)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(vapigen)
 BuildRequires:	pkgconfig(webkit2gtk-4.0)
