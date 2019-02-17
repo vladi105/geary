@@ -4,7 +4,7 @@
 %global __provides_exclude_from %{_libdir}/%{name}/.*\\.so
 
 Name:		geary
-Version:	0.12.4
+Version:	0.13.0
 Release:	1
 Summary:	A lightweight email program designed around conversations
 License:	LGPLv2+
@@ -24,6 +24,7 @@ BuildRequires:	pkgconfig(enchant)
 BuildRequires:	pkgconfig(gcr-3)
 BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(gmime-2.6)
+BuildRequires:       pkgconfig(goa-1.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(javascriptcoregtk-4.0)
