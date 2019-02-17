@@ -4,33 +4,40 @@
 %global __provides_exclude_from %{_libdir}/%{name}/.*\\.so
 
 Name:		geary
-Version:	0.12.4
+Version:	0.13.0
 Release:	1
 Summary:	A lightweight email program designed around conversations
 License:	LGPLv2+
 Group:		Networking/Mail
 URL:		https://wiki.gnome.org/Apps/Geary
 Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
-Patch0:		0001-Fix-web-extensions-location.patch
+#Patch0:		0001-Fix-web-extensions-location.patch
 # Geary wont build with new webkitGTK >=2.21. https://gitlab.gnome.org/GNOME/geary/issues/37 (penguin)
-Patch1:		geary-0.12-use-upstream-jsc.patch
+#Patch1:		geary-0.12-use-upstream-jsc.patch
 BuildRequires:	cmake
 BuildRequires:	gettext
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool
 BuildRequires:	iso-codes
+BuildRequires:  itstool
+BuildRequires:  meson
 BuildRequires:	xml2po
 BuildRequires:	pkgconfig(enchant)
+BuildRequires:  pkgconfig(enchant-2)
 BuildRequires:	pkgconfig(gcr-3)
 BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(gmime-2.6)
+BuildRequires:  pkgconfig(goa-1.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:  pkgconfig(iso-codes)
 BuildRequires:	pkgconfig(javascriptcoregtk-4.0)
+BuildRequires:  pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libcanberra)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(libsoup-2.4)
+BuildRequires:  pkgconfig(libunwind)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(vapigen)
 BuildRequires:	pkgconfig(webkit2gtk-4.0)
@@ -53,17 +60,11 @@ features in a modular way.
 %apply_patches
 
 %build
-%cmake -DGSETTINGS_COMPILE=OFF \
-       -DGSETTINGS_COMPILE_IN_PLACE=OFF \
-       -DICON_UPDATE=OFF \
-       -DDESKTOP_UPDATE=OFF \
-       -DCMAKE_INSTALL_LIBDIR:PATH=%{_libdir} \
-       -DLIB_INSTALL_DIR:PATH=%{_libdir}
-
-%make
+%meson
+%meson_build
 
 %install
-%makeinstall_std -C build
+%meson_install
 
 %find_lang %{name} --with-gnome
 
@@ -75,7 +76,6 @@ features in a modular way.
 %{_datadir}/glib-2.0/schemas/org.gnome.Geary.gschema.xml
 %{_datadir}/icons/hicolor/*/apps/org.gnome.Geary*
 %{_datadir}/icons/hicolor/*/actions/*.*
-%{_datadir}/appdata/org.gnome.Geary.appdata.xml
-%{_datadir}/contractor/%{name}*.contract
+%{_datadir}/metainfo/org.gnome.Geary.appdata.xml
 %{_libdir}/%{name}/
 
