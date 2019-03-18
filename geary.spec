@@ -5,7 +5,7 @@
 
 Name:		geary
 Version:	0.13.3
-Release:	1
+Release:	2
 Summary:	A lightweight email program designed around conversations
 License:	LGPLv2+
 Group:		Networking/Mail
@@ -43,6 +43,7 @@ BuildRequires:	pkgconfig(vapigen)
 BuildRequires:	pkgconfig(webkit2gtk-4.0)
 BuildRequires:	pkgconfig(webkit2gtk-web-extension-4.0)
 Requires:	hicolor-icon-theme
+Requires: gsettings-desktop-schemas
 
 %description
 Geary is a new email reader for GNOME designed to let you read your email
